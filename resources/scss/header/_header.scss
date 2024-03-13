@@ -1,0 +1,23 @@
+header {
+    background-color: #ffffff;
+    padding-top: 24px;
+
+
+    ul {
+        display: flex;
+        gap: 16px;
+        list-style-type: none;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        a {
+            color: #000000;
+        }
+    }
+
+    .header-jumbotron{
+        background-image: url('../img/jumbotron.jpg');
+        height: 400px;
+        margin-top: 24px;
+    }
+}

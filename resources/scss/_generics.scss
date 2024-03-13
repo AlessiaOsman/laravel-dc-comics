@@ -1,0 +1,26 @@
+body {
+    font-family: "Open Sans ", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+main {
+    color: #000000;
+    position: relative;
+    text-align: center;
+
+    p {
+        font-size: 24px;
+    }
+
+    .container{
+        flex-direction: column;
+    }
+
+}
+
+ul{
+    list-style-type: none;
+}

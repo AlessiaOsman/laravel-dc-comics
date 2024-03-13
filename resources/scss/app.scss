@@ -1,0 +1,8 @@
+//@import '~bootstrap/scss/bootstrap';
+@use 'vars';
+@use 'generics';
+@use 'utils';
+@use 'reset';
+@use 'header/header';
+@use 'footer/footer.scss';
+@use 'comics/comics'
