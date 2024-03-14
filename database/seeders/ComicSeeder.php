@@ -234,7 +234,7 @@ class ComicSeeder extends Seeder
             $new_comic->fill($comic);
             $new_comic->artists = Arr::join($new_comic->artists, ', ');
             $new_comic->writers = Arr::join($new_comic->writers, ', ');
-            $new_comic->slug = Str::slug($new_comic->name);
+            $new_comic->slug = Str::slug($new_comic->title);
             $new_comic->save();
         }
     }
