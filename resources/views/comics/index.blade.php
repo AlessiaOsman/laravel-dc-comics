@@ -6,6 +6,7 @@
     <div id='main-comics-content'>
         <div class='container'>
             <p class='comics-label'>CURRENT SERIES</p>
+            <a href='{{route('comics.create')}}'><button>Crea nuovo fumetto</button></a>
             <ul class='row'>
                 @foreach ($comics as $comic)
                     <li class='col'>
