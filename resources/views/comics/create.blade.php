@@ -9,7 +9,7 @@
 
 @section('main-content')
 <div class='container py-5'>
-    <form class="row g-3" action='' method='POST'>
+    <form class="row g-3" action='{{route('comics.store')}}' method='POST'>
         @csrf {{-- Lo inserisco per il controllo del token --}}
         <div class="col-md-6">
             <label for="title" class="form-label">Nome fumetto</label>
@@ -17,7 +17,7 @@
         </div>
         <div class="col-md-6">
             <label for="series" class="form-label">Serie</label>
-            <input type="email" name='series' class="form-control">
+            <input type="text" name='series' class="form-control">
         </div>
         <div class="col-md-12">
             <label for="description" class="form-label">Descrizione</label>
