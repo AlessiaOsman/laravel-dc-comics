@@ -9,23 +9,23 @@
         <div class='section-blue'>
             <div class='section-blue-container container'>
 
-                <img class='container' src='{{ $comic['thumb'] }}' />
+                <img class='container' src='{{ $comic->thumb }}' />
             </div>
         </div>
         <div class='container'>
             <div class='comic-card'>
                 <div class='left'>
-                    <h1 class='card-title'>{{ $comic['title'] }}</h1>
+                    <h1 class='card-title'>{{ $comic->title }}</h1>
                     <div class='card-header'>
                         <div class='card-header-left'>
-                            <h5 class='price'>U.S. Price: <span>{{ $comic['price'] }}</span></h5>
+                            <h5 class='price'>U.S. Price: <span>{{ $comic->price }}</span></h5>
                             <h5>AVAILABLE</h5>
                         </div>
                         <div class='card-header-right'>
                             <h5>Check Availability</h5>
                         </div>
                     </div>
-                    <p class='card-description'>{{ $comic['description'] }}</p>
+                    <p class='card-description'>{{ $comic->description }}</p>
 
                 </div>
 
@@ -43,11 +43,11 @@
                     <table>
                         <tr>
                             <td>Art by:</td>
-                            <td>{{ implode(', ' , $comic['artists']) }}</td>
+                            <td>{{ $comic->artists }}</td>
                         </tr>
                          <tr>
                             <td>Written by:</td>
-                            <td>{{ implode(', ' , $comic['writers']) }}</td>
+                            <td>{{ $comic->writers }}</td>
                         </tr>
                     </table>
                 </div>
@@ -56,15 +56,15 @@
                     <table>
                         <tr>
                             <td>Series:</td>
-                            <td>{{ $comic['series'] }}</td>
+                            <td>{{ $comic->series }}</td>
                         </tr>
                           <tr>
                             <td>U.S. Price:</td>
-                            <td>{{ $comic['price'] }}</td>
+                            <td>{{ $comic->price }}</td>
                         </tr>
                         <tr>
                             <td>On sale date:</td>
-                            <td>{{ $comic['sale_date'] }}</td>
+                            <td>{{ $comic->sale_date }}</td>
                         </tr>
                     </table>
                 </div>
