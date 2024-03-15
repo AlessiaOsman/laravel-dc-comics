@@ -16,6 +16,7 @@
             <div class='comic-card'>
                 <div class='left'>
                     <h1 class='card-title'>{{ $comic->title }}</h1>
+                    <a href='{{route('comics.edit', $comic->id)}}'>Mofifica</a>
                     <div class='card-header'>
                         <div class='card-header-left'>
                             <h5 class='price'>U.S. Price: <span>{{ $comic->price }}</span></h5>

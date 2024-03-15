@@ -47,4 +47,20 @@ class ComicController extends Controller
         return redirect()->route('comics.show', $comic); 
         //oppure to_route('comics.show', $comic->id)
     }
+
+    public function edit(Comic $comic){
+        return view('comics.edit', compact('comic'));
+    }
+
+    public function update(Request $request, Comic $comic){
+        $data = $request->all();
+        $comic->fill($data);
+        $comic->slug = Str::slug($data['title']);
+        $comic->save();
+        return to_route('comics.show', $comic->id);
+
+        //invece di scrivere fill e save posso scrivere queste istruzioni:
+        //$data['slug] = Str::slug($data['title]);
+        //$comic->update($data);
+    }
 }
