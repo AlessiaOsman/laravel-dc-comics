@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreComicRequest;
+use App\Http\Requests\UpdateComicRequest;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class ComicController extends Controller
@@ -21,21 +24,10 @@ class ComicController extends Controller
         return view('comics.create', ['comic' => new Comic()]);
     }
 
-    public function store(Request $request){
+    public function store(StoreComicRequest $request){
 
-        $data = $request->validate([
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'thumb' => 'nullable|url:http,https',
-            'price' => 'required|string',
-            'series' => 'required|string',
-            'sale_date' => 'required|date',
-            'type' => 'required|string',
-            'artists' => 'required|string',
-            'writers' => 'required|string'
-        ]);
+        $data = $request->validated();
 
-        $data = $request->all();
         $comic = new Comic();
         $comic->fill($data);
         $comic->slug = Str::slug($data['title']); 
@@ -52,25 +44,14 @@ class ComicController extends Controller
         return view('comics.edit', compact('comic'));
     }
 
-    public function update(Request $request, Comic $comic){
+    public function update(UpdateComicRequest $request, Comic $comic){
 
-        $data = $request->validate([
-            'title' => 'required|string',
-            'description' => 'required|string',
-            'thumb' => 'nullable|url:http,https',
-            'price' => 'required|string',
-            'series' => 'required|string',
-            'sale_date' => 'required|date',
-            'type' => 'required|string',
-            'artists' => 'required|string',
-            'writers' => 'required|string'
-        ]);
+        $data = $request->validated();
 
         //Se una delle chiavi sopra avesse anche unique:comics dovrei trasformare il valore in un array
         //Separare i campi con una virgola
         //importo Rule e al posto di unique:comics metto Rule::unique('comics')->ignore($comic->id)
 
-        $data = $request->all();
         $comic->fill($data);
         $comic->slug = Str::slug($data['title']);
         $comic->save();
@@ -85,4 +66,5 @@ class ComicController extends Controller
         $comic->delete();
         return to_route('comics.index');
     }
+
 }
