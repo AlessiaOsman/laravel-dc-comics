@@ -7,6 +7,9 @@
         <div class='container'>
             <p class='comics-label'>CURRENT SERIES</p>
             <a href='{{route('comics.create')}}'><button>Crea nuovo fumetto</button></a>
+            @session('message')
+                <div class='alert-message'><h1>{{$value}}</h1></div>
+            @endsession
             <ul class='row'>
                 @foreach ($comics as $comic)
                     <li class='col'>
