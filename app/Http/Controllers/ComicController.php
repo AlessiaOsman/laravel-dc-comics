@@ -18,7 +18,7 @@ class ComicController extends Controller
     }
 
     public function create (){
-        return view('comics.create');
+        return view('comics.create', ['comic' => new Comic()]);
     }
 
     public function store(Request $request){
@@ -62,5 +62,10 @@ class ComicController extends Controller
         //invece di scrivere fill e save posso scrivere queste istruzioni:
         //$data['slug] = Str::slug($data['title]);
         //$comic->update($data);
+    }
+
+    public function destroy(Comic $comic){
+        $comic->delete();
+        return to_route('comics.index');
     }
 }
