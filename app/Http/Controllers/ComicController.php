@@ -66,6 +66,10 @@ class ComicController extends Controller
             'writers' => 'required|string'
         ]);
 
+        //Se una delle chiavi sopra avesse anche unique:comics dovrei trasformare il valore in un array
+        //Separare i campi con una virgola
+        //importo Rule e al posto di unique:comics metto Rule::unique('comics')->ignore($comic->id)
+
         $data = $request->all();
         $comic->fill($data);
         $comic->slug = Str::slug($data['title']);
