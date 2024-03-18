@@ -17,7 +17,7 @@
                 <div class='left'>
                     <h1 class='card-title'>{{ $comic->title }}</h1>
                     <a href='{{route('comics.edit', $comic->id)}}'>Mofifica</a>
-                    <form action='{{route('comics.destroy', $comic->id)}}' method='POST'>
+                    <form action='{{route('comics.destroy', $comic->id)}}' method='POST' id='delete-form'>
                         @csrf
                         @method('DELETE')
                         <button type='submit'>Elimina</button>
@@ -77,4 +77,14 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    <script>
+        const deleteForm = document.getElementById('delete-form')
+        deleteForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const confirmation = confirm("Sei sicuro di voler cancellare {{$comic->title}}?");
+            if(confirmation) deleteForm.submit();
+        })
+    </script>
 @endsection
