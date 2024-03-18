@@ -53,6 +53,19 @@ class ComicController extends Controller
     }
 
     public function update(Request $request, Comic $comic){
+
+        $data = $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+            'thumb' => 'nullable|url:http,https',
+            'price' => 'required|string',
+            'series' => 'required|string',
+            'sale_date' => 'required|date',
+            'type' => 'required|string',
+            'artists' => 'required|string',
+            'writers' => 'required|string'
+        ]);
+
         $data = $request->all();
         $comic->fill($data);
         $comic->slug = Str::slug($data['title']);
